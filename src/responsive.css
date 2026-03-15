@@ -340,7 +340,6 @@ Unified Mobile Nav Bar & Sidebar Drawer
         box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
         z-index: 2000;
         transition: right 0.3s ease-in-out;
-        height: 100vh;
     }
 
     .mobile-sidebar.active {
@@ -372,13 +371,13 @@ Unified Mobile Nav Bar & Sidebar Drawer
     .mobile-sidebar-links {
         display: flex;
         flex-direction: column;
-        padding: 0.5rem 0;
+        padding: 1rem 0;
         flex-grow: 1;
-        /* overflow-y: auto; */
+        overflow-y: auto;
     }
 
     .mobile-sidebar-links a {
-        padding: 0.8rem 1.5rem;
+        padding: 1rem 1.5rem;
         text-decoration: none;
         color: #374151;
         font-weight: 500;
@@ -551,4 +550,3 @@ Unified Mobile Nav Bar & Sidebar Drawer
         gap: 0.75rem;
     }
 }
-
