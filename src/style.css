@@ -513,6 +513,17 @@ body {
   font-size: 0.95rem;
 }
 
+/* Responsive Table Scroll */
+@media (max-width: 768px) {
+  .table-card {
+    overflow-x: auto;
+  }
+
+  .table {
+    min-width: 600px;
+  }
+}
+
 /* Status Badges */
 .badge {
   display: inline-flex;
