@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Nutrition Tracker</title>
     <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/responsive.css" />
     
     <link
       rel="stylesheet"
@@ -15,16 +16,14 @@
   </head>
   <body class="dashboard-body">
     <nav class="navbar">
-      <div class="navbar-container">
+      <div class="navbar-container" style="gap: 1rem; flex-wrap: nowrap;">
         <div class="navbar-brand">
-          <h1>
-            <i class="fas fa-heartbeat"></i> Nutrition Tracker - Admin Portal
-          </h1>
-          <div class="navbar-links">
-            <!-- <a href="dashboard.html" class="active">All Use</a> -->
-          </div>
+          <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: #1f2937;">
+            <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+          </a>
         </div>
-        <div style="margin-left: auto; padding-left: 3rem">
+
+        <div style="margin-left: auto; padding-left: 1rem;">
           <button id="logoutBtn" class="btn-logout">Logout</button>
         </div>
       </div>
