@@ -185,10 +185,23 @@ document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
 function renderIngredientRows() {
     ingredientList.innerHTML = ingredients.map((item, index) => `
         <div class="ingredient-row">
-            <input type="text" class="item-name" placeholder="Food name" value="${escapeHtml(item.item || '')}" />
-            <input type="number" class="item-portion" min="1" step="1" value="${Number(item.portion || 1)}" />
-            <input type="number" class="item-serving" min="1" step="1" value="${Number(item.serving_size_g || 100)}" />
-            <button type="button" class="btn-small-danger" data-action="remove-item" data-index="${index}">Delete</button>
+            <div class="ingredient-content">
+                <div class="ingredient-line ingredient-line-name">
+                    <span class="ingredient-label">Food Name:</span>
+                    <input type="text" class="item-name" placeholder="Food name" value="${escapeHtml(item.item || '')}" />
+                </div>
+                <div class="ingredient-line ingredient-line-meta">
+                    <span class="ingredient-label">Quantity:</span>
+                    <input type="number" class="item-portion" min="1" step="1" value="${Number(item.portion || 1)}" />
+                </div>
+                <div class="ingredient-line ingredient-line-unit">
+                    <span class="ingredient-label">Unit (g):</span>
+                    <input type="number" class="item-serving" min="1" step="1" value="${Number(item.serving_size_g || 100)}" />
+                </div>
+            </div>
+            <button type="button" class="btn-delete-icon" data-action="remove-item" data-index="${index}" aria-label="Delete food item">
+                <i class="fas fa-trash" aria-hidden="true"></i>
+            </button>
         </div>
     `).join('');
 }
