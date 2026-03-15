@@ -462,6 +462,11 @@ Unified Mobile Nav Bar & Sidebar Drawer
         font-size: 1.5rem; 
     }
 
+    .hero-title-top,
+    .gradient-text {
+        font-size: 18px;
+    }
+
     .hero-subtitle {
         font-size: 0.875rem;
     }
@@ -587,5 +592,13 @@ Unified Mobile Nav Bar & Sidebar Drawer
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 0.75rem;
+    }
+}
+
+
+@media screen and (max-width: 368px) {
+    .hero-title-top,
+    .gradient-text {
+        font-size: 15px;
     }
 }
