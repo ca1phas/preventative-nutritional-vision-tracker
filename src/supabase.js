@@ -11,17 +11,37 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 // ==========================================
 
 export async function authenticateUser(email, password) {
-    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+    // 1. Attempt standard login
+    let { data: authData, error: authError } = await supabase.auth.signInWithPassword({
         email,
         password,
     });
-    if (authError) throw authError;
 
+    // 2. If login fails, attempt to automatically sign up
+    if (authError) {
+        const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+            email,
+            password,
+        });
+
+        // If sign-up also fails (e.g., the user exists but typed the wrong password, 
+        // or the password is too weak), throw the error to the UI.
+        if (signUpError) {
+            throw new Error(signUpError.message);
+        }
+
+        // Use the newly created user data
+        authData = signUpData;
+    }
+
+    // 3. Check for admin status
+    // We use .maybeSingle() instead of .single() because a brand new user 
+    // won't have a profile row in the 'users' table yet.
     const { data: profile, error: profileError } = await supabase
         .from('users')
         .select('is_admin')
         .eq('id', authData.user.id)
-        .single();
+        .maybeSingle();
 
     if (profileError) console.error("Could not fetch user profile details:", profileError);
 
