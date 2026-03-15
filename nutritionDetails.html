@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutrition Details - Nutrition Tracker</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+
+  <body class="dashboard-body">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+      <div class="page-header">
+        <a href="userDashboard.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+        <h2 class="page-title">Nutrition Guide & Insights</h2>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fas fa-bullseye"></i> Your Calorie Budget Explained</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+          Your daily budget is calculated based on your <strong>BMR (Basal Metabolic Rate)</strong> and activity level. To maintain a healthy lifestyle, we track your intake against your personalized target.
+        </p>
+        <div class="zone-explanation">
+          <div class="zone-item warning">
+            <h4 style="color: #ff9966;;">Warning</h4>
+            <p>> 500 cal below target</p>
+          </div>
+          <div class="zone-item healthy">
+            <h4 style="color: var(--accent-green);">Healthy</h4>
+            <p>± 200 cal of target</p>
+          </div>
+          <div class="zone-item alert-2">
+            <h4 style="color: var(--accent-red);">Alert</h4>
+            <p>> 200 cal above target</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fas fa-chart-pie"></i> Understanding Macronutrients</h3>
+
+        <div class="macro-list">
+
+          <div class="macro-detail">
+            <div class="macro-icon icon-pro"><i class="fas fa-drumstick-bite"></i></div>
+            <div class="macro-text">
+              <h4>Protein</h4>
+              <p>Essential for building and repairing tissue. It keeps you feeling full for longer, reducing cravings.</p>
+              <div class="target-badge" style="color: #ec4899;">Target: 10% - 35% of daily calories</div>
+            </div>
+          </div>
+
+          <div class="macro-detail">
+            <div class="macro-icon icon-carb"><i class="fas fa-bread-slice"></i></div>
+            <div class="macro-text">
+              <h4>Carbohydrates</h4>
+              <p>Your body's primary energy source. Focus on complex carbs like whole grains to avoid sudden blood sugar spikes.</p>
+              <div class="target-badge" style="color: #f59e0b;">Target: 45% - 65% of daily calories</div>
+            </div>
+          </div>
+
+          <div class="macro-detail">
+            <div class="macro-icon icon-fat"><i class="fas fa-cheese"></i></div>
+            <div class="macro-text">
+              <h4>Fats</h4>
+              <p>Crucial for brain function and nutrient absorption. Prioritize healthy unsaturated fats (like avocados and nuts).</p>
+              <div class="target-badge" style="color: #3b82f6;">Target: 20% - 35% of daily calories</div>
+            </div>
+          </div>
+
+          <div class="macro-detail">
+            <div class="macro-icon icon-sug"><i class="fas fa-cubes"></i></div>
+            <div class="macro-text">
+              <h4>Sugar</h4>
+              <p>Excessive added sugar leads to rapid blood glucose spikes, which can cause long-term metabolic and vision issues.</p>
+              <div class="target-badge" style="color: #a855f7;">Target: Under 50g per day</div>
+            </div>
+          </div>
+
+          <div class="macro-detail">
+            <div class="macro-icon icon-fib"><i class="fas fa-seedling"></i></div>
+            <div class="macro-text">
+              <h4>Fiber</h4>
+              <p>Slows down digestion and sugar absorption, playing a vital role in preventing diabetes and managing weight.</p>
+              <div class="target-badge" style="color: #14b8a6;">Target: 25g - 30g per day</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fas fa-lightbulb"></i> Tips for a Balanced Diet</h3>
+        <ul class="tips-list">
+          <li><strong>Stay Hydrated:</strong> Sometimes thirst is confused with hunger. Drink at least 8 glasses of water daily.</li>
+          <li><strong>Fiber is your friend:</strong> High-fiber foods (vegetables, beans, oats) help regulate blood sugar, which aligns with preventative nutritional goals.</li>
+          <li><strong>Mindful Eating:</strong> Log your meals <em>before</em> or <em>while</em> you eat to stay aware of your health status throughout the day.</li>
+        </ul>
+      </div>
+
+    </div>
+  </body>
+</html>

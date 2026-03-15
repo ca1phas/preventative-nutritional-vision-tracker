@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirm Ingredients - Nutrition Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/responsive.css" />
+    <script type="module" src="/src/confirm.js"></script>
+  </head>
+  <body class="dashboard-body">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+          <div class="navbar-links">
+            <a href="userProfile.html">Profile</a>
+            <a href="userDashboard.html">Dashboard</a>
+            <a href="history.html">History</a>
+            <a href="upload.html" class="active">Upload Meal</a>
+            <a href="index.html">Homepage</a>
+          </div>
+        </div>
+        <div style="margin-left: auto; padding-left: 3rem">
+          <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="page-header">
+        <h2>Confirm Food Items</h2>
+      </div>
+
+      <div class="upload-card">
+        <div id="error" class="alert alert-error hidden"></div>
+        <div id="success" class="alert alert-success hidden"></div>
+
+        <div id="uploadedImagePreview" class="image-preview hidden">
+          <img id="confirmPreviewImg" src="" alt="Uploaded meal preview" />
+        </div>
+
+        <div class="mb-4">
+          <h3
+            style="
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 1rem;
+              color: #374151;
+            "
+          >
+            Food Item List
+          </h3>
+
+          <div class="ingredient-header">
+            <span>Food Name</span>
+            <span>Quantity</span>
+            <span>Unit (g)</span>
+            <span>Action</span>
+          </div>
+
+          <div id="ingredientList"></div>
+          <button
+            id="addItemBtn"
+            class="btn btn-secondary"
+            style="margin-top: 1rem"
+          >
+            + Add Food Item
+          </button>
+        </div>
+
+        <div class="mb-4" style="display: none">
+          <h3
+            style="
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 1rem;
+              color: #374151;
+            "
+          >
+            JSON Preview
+          </h3>
+          <pre id="jsonPreview" class="json-preview"></pre>
+        </div>
+
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Estimating nutrition and submitting...</p>
+        </div>
+
+        <div id="actions" class="button-group">
+          <button id="confirmBtn" class="btn btn-success">
+            Run AI Nutrition Analysis
+          </button>
+          <button id="rejectBtn" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

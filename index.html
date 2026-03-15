@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
+    <title>
+      Preventative Nutritional Vision Tracker | Healthcare AI Solutions
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/responsive.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body class="homepage">
+    <header class="main-header">
+        <nav class="navbar">
+          <div class="navbar-container">
+            <div class="navbar-brand">
+              <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: #1f2937;">
+                <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+              </a>
+            </div>
+
+            <div class="navbar-links desktop-menu" id="desktopNavLinks">
+              <a href="#home" class="active">Home</a>
+              <a href="#about">About</a>
+              <a href="#solution">Solution</a>
+              <a href="#features">Features</a>
+              <a href="#contact">Contact</a>
+            </div>
+
+            <div class="user-controls desktop-menu" id="desktopNavActions" style="margin-left: auto;">
+              <div class="user-dropdown">
+                <button class="user-icon-btn" id="userMenuBtn">
+                  <i class="fas fa-user-circle"></i>
+                  <span>Account</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu" id="userDropdown">
+                  <div class="dropdown-header">Select Role</div>
+                  <a href="#" class="dropdown-item" id="adminRole"><i class="fas fa-user-shield"></i> Admin Portal</a>
+                  <a href="#" class="dropdown-item" id="userRole"><i class="fas fa-user"></i> User Dashboard</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </div>
+              </div>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <div class="mobile-sidebar" id="mobileSidebar">
+          <div class="mobile-sidebar-header">
+            <h3>Menu</h3>
+            <button id="closeSidebarBtn" class="close-sidebar-btn"><i class="fas fa-times"></i></button>
+          </div>
+          <div class="mobile-sidebar-links" id="mobileNavLinks">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#solution">Solution</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="mobile-sidebar-footer" id="mobileNavActions">
+            <a href="login.html" class="btn btn-primary" style="display: block; text-align: center; width: 100%; text-decoration: none; padding: 10px; border-radius: 8px;">
+              <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+          </div>
+        </div>
+    </header>
+
+    <section class="hero-section" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-award"></i>
+            <span>Innovation in Healthcare Technology</span>
+          </div>
+          <div class="hero-text-card">
+            <h1 class="hero-title">
+              <span class="hero-title-top">PREVENTATIVE NUTRITIONAL</span><br />
+              <span class="gradient-text">VISION TRACKER</span>
+            </h1>
+            <p class="hero-subtitle">
+              Bridging the gap between patient self-reporting and clinical
+              monitoring through advanced AI-powered multimodal analysis
+            </p>
+          </div>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary-large" id="startTrackingBtn">
+              <i class="fas fa-camera"></i>
+              Start Tracking
+            </a>
+            <button class="btn btn-secondary-large" id="learnMoreBtn">
+              <i class="fas fa-info-circle"></i>
+              Learn More
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Monitoring</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">AI</div>
+              <div class="stat-label">Powered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">The Challenge</span>
+          <h2 class="section-title">Real-World Healthcare Gap</h2>
+          <p class="section-subtitle">
+            Addressing critical challenges in preventative nutritional care
+          </p>
+        </div>
+        <div class="content-grid">
+          <div class="content-card">
+            <div
+              class="card-icon"
+              style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              "
+            >
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3>Data Accuracy Crisis</h3>
+            <p>
+              Clinical dietitians and physicians lack accurate, continuous data
+              on the dietary habits of at-risk individuals between clinic
+              visits. Manual food logging is notoriously error-prone, leading to
+              unreliable patient data.
+            </p>
+          </div>
+          <div class="content-card">
+            <div
+              class="card-icon"
+              style="
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+              "
+            >
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>At-Risk Populations</h3>
+            <p>
+              Pre-diabetic patients and other vulnerable groups require
+              consistent nutritional monitoring. Traditional methods fail to
+              capture real-time eating behaviors, hindering effective
+              preventative care strategies.
+            </p>
+          </div>
+          <div class="content-card">
+            <div
+              class="card-icon"
+              style="
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+              "
+            >
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Global Health Impact</h3>
+            <p>
+              The inability to monitor dietary habits accurately impedes
+              progress toward global health sustainability targets. Better tools
+              are essential for achieving population-level health improvements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="solution">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Solution</span>
+          <h2 class="section-title">Hybrid Multimodal AI Technology</h2>
+          <p class="section-subtitle">
+            Cutting-edge vision and language models working together for precise
+            nutritional analysis
+          </p>
+        </div>
+        <div class="solution-content">
+          <div class="solution-text">
+            <h3>
+              <i class="fas fa-brain"></i>
+              Intelligent Two-Stage Processing
+            </h3>
+            <div class="feature-list">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Vision-Language Model Analysis</h4>
+                  <p>
+                    External Vision-Language Model identifies ingredients and
+                    estimates relative portion sizes (small, medium, large) from
+                    user-submitted meal photos with high accuracy.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-calculator"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Clinical Reasoning Engine</h4>
+                  <p>
+                    Flextoken gpt-oss:20b model acts as the clinical reasoning
+                    engine, cross-referencing visual inputs to calculate
+                    accurate macronutrients (proteins, carbs, fats) for
+                    comprehensive dietary assessment.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-sync-alt"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Continuous Monitoring</h4>
+                  <p>
+                    Real-time data collection between clinic visits provides
+                    healthcare professionals with unprecedented insight into
+                    patient dietary patterns, enabling proactive interventions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="solution-visual">
+            <div class="tech-stack-card">
+              <div class="tech-header">
+                <i class="fas fa-microchip"></i>
+                <h4>Technology Stack</h4>
+              </div>
+              <div class="tech-items">
+                <div class="tech-item">
+                  <i class="fas fa-camera"></i>
+                  <span>Vision AI</span>
+                </div>
+                <div class="tech-item">
+                  <i class="fas fa-comments"></i>
+                  <span>Language Model</span>
+                </div>
+                <div class="tech-item">
+                  <i class="fas fa-database"></i>
+                  <span>Real-time Database</span>
+                </div>
+                <div class="tech-item">
+                  <i class="fas fa-cloud"></i>
+                  <span>Cloud Computing</span>
+                </div>
+                <div class="tech-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>HIPAA Compliant</span>
+                </div>
+                <div class="tech-item">
+                  <i class="fas fa-mobile-alt"></i>
+                  <span>Mobile Ready</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Key Features</span>
+          <h2 class="section-title">Comprehensive Healthcare Platform</h2>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-user-md"></i>
+            <h3>For Healthcare Providers</h3>
+            <ul>
+              <li>Real-time patient monitoring dashboard</li>
+              <li>Automated nutritional reports</li>
+              <li>Trend analysis and alerts</li>
+              <li>Multi-patient management</li>
+            </ul>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-user"></i>
+            <h3>For Patients</h3>
+            <ul>
+              <li>Simple photo-based logging</li>
+              <li>Instant nutritional feedback</li>
+              <li>Progress tracking</li>
+              <li>Personalized recommendations</li>
+            </ul>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-lock"></i>
+            <h3>Security & Privacy</h3>
+            <ul>
+              <li>HIPAA-compliant data storage</li>
+              <li>End-to-end encryption</li>
+              <li>Role-based access control</li>
+              <li>Audit trails</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Transform Preventative Care?</h2>
+          <p>
+            Join healthcare professionals worldwide in revolutionizing
+            nutritional monitoring
+          </p>
+          <div class="cta-buttons">
+            <button class="btn btn-light-large" id="getStartedBtn">
+              Get Started Now
+            </button>
+            <button class="btn btn-outline-large" id="contactTeamBtn">
+              Contact Our Team
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer" id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>
+              <i class="fas fa-heartbeat"></i>
+              Nutritional Vision Tracker
+            </h3>
+            <p>
+              Empowering healthcare through AI-driven nutritional monitoring
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#solution">Solution</a></li>
+              <li><a href="#features">Features</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <i class="fas fa-envelope"></i> thinkers@nutritiontracker.health
+              </li>
+              <li><i class="fas fa-phone"></i> +60 123456789</li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i> Thinkers Healthcare
+                Innovation Center
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 Preventative Nutritional Vision Tracker. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

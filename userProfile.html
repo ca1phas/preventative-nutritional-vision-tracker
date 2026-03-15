@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - Nutrition Tracker</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script type="module" src="/src/userProfile.js" defer></script>
+  </head>
+  <body class="dashboard-body">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: #1f2937;">
+            <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+          </a>
+        </div>
+
+        <div class="navbar-links desktop-menu">
+          <a href="userProfile.html">Profile</a>
+          <a href="userDashboard.html">Dashboard</a>
+          <a href="history.html">History</a>
+          <a href="upload.html">Upload Meal</a>
+          <a href="index.html">Homepage</a>
+        </div>
+        <div class="navbar-actions desktop-menu" style="margin-left: auto; padding-left: 3rem;">
+          <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-header">
+        <h3>Menu</h3>
+        <button id="closeSidebarBtn" class="close-sidebar-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="mobile-sidebar-links">
+        <a href="userProfile.html">Profile</a>
+        <a href="userDashboard.html">Dashboard</a>
+        <a href="history.html">History</a>
+        <a href="upload.html">Upload Meal</a>
+        <a href="index.html">Homepage</a>
+      </div>
+      <div class="mobile-sidebar-footer">
+        <button id="logoutBtnMobile" class="btn-logout">Logout</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Profile Panel -->
+      <div id="profilePanel" class="panel-content">
+        <div class="page-header user-profile-header">
+          <h2><i class="fas fa-user-circle"></i> User Profile</h2>
+        
+          <div class="profile-subtitle">
+            <p class="profile-text">
+              Manage your personal information and health data
+            </p>
+        
+            <p id="currentUserDisplay" class="user-email"></p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <form id="profileForm">
+            <p
+              id="profileStatus"
+              style="display: none; margin-bottom: 1rem"
+            ></p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="userName"
+                  ><i class="fas fa-user"></i> Full Name
+                  <span style="color: red; font-size: 20px">*</span></label
+                >
+                <input
+                  type="text"
+                  id="userName"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="userAge"
+                  ><i class="fas fa-birthday-cake"></i> Age
+                  <span style="color: red; font-size: 20px">*</span></label
+                >
+                <input
+                  type="number"
+                  id="userAge"
+                  placeholder="Enter your age"
+                  required
+                  min="1"
+                  max="150"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="userGender"
+                  ><i class="fas fa-venus-mars"></i> Gender
+                  <span style="color: red; font-size: 20px">*</span></label
+                >
+                <select id="userGender" required>
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="userWeight"
+                  ><i class="fas fa-weight"></i> Weight (kg)
+                  <span style="color: red; font-size: 20px">*</span></label
+                >
+                <input
+                  type="number"
+                  id="userWeight"
+                  placeholder="Enter weight"
+                  required
+                  step="0.1"
+                  min="1"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="userHeight"
+                  ><i class="fas fa-ruler-vertical"></i> Height (cm)
+                  <span style="color: red; font-size: 20px">*</span></label
+                >
+                <input
+                  type="number"
+                  id="userHeight"
+                  placeholder="Enter height"
+                  required
+                  step="0.1"
+                  min="1"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="userBMI"
+                  ><i class="fas fa-calculator"></i> BMI</label
+                >
+                <input
+                  type="text"
+                  id="userBMI"
+                  readonly
+                  placeholder="Auto-calculated"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="medicalNotes"
+                ><i class="fas fa-notes-medical"></i> Medical Notes (If don't
+                have put "None")
+                <span style="color: red; font-size: 20px">*</span></label
+              >
+              <textarea
+                id="medicalNotes"
+                rows="4"
+                required
+                placeholder="Enter any medical conditions, allergies, or dietary restrictions"
+              ></textarea>
+            </div>
+
+            <div class="button-group">
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-save"></i> Save Profile
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="src/responsive.css" />
+</head>
+<body>
+  <h2>Create Account</h2>
+
+  <form id="signupForm">
+    <div>
+      <label>Email</label><br>
+      <input type="email" id="email" required placeholder="you@email.com" />
+    </div>
+    <br>
+    <div>
+      <label>Password</label><br>
+      <input type="password" id="password" required placeholder="Min 6 characters" />
+    </div>
+    <br>
+    <div>
+      <label>Full Name</label><br>
+      <input type="text" id="name" placeholder="Your name" />
+    </div>
+    <br>
+    <div>
+      <label>Age</label><br>
+      <input type="number" id="age" placeholder="Age" />
+    </div>
+    <br>
+    <div>
+      <label>Gender</label><br>
+      <select id="gender">
+        <option value="">-- Select --</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <br>
+    <div>
+      <label>Weight (kg)</label><br>
+      <input type="number" id="weight" step="0.1" placeholder="e.g. 65.5" />
+    </div>
+    <br>
+    <div>
+      <label>Height (cm)</label><br>
+      <input type="number" id="height" step="0.1" placeholder="e.g. 170" />
+    </div>
+    <br>
+    <div>
+      <label>Admin Account?</label><br>
+      <input type="checkbox" id="isAdmin" /> Yes
+    </div>
+    <br>
+    <button type="submit" id="signupBtn">Sign Up</button>
+  </form>
+
+  <p id="message" style="margin-top:1rem;"></p>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const SUPABASE_URL = 'https://dglguefhzheajmqahmqx.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRnbGd1ZWZoemhlYWptcWFobXF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNjAzOTIsImV4cCI6MjA4ODYzNjM5Mn0.aq_LkeMjx9uiF4L-5N4OA6lXzWJ4FPTdxjBw7YrnH-Q';
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const msg = document.getElementById('message');
+
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const btn = document.getElementById('signupBtn');
+      btn.disabled = true;
+      btn.textContent = 'Signing up...';
+      msg.textContent = '';
+
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const name     = document.getElementById('name').value.trim();
+      const age      = parseInt(document.getElementById('age').value) || null;
+      const gender   = document.getElementById('gender').value || null;
+      const weight   = parseFloat(document.getElementById('weight').value) || null;
+      const height   = parseFloat(document.getElementById('height').value) || null;
+      const isAdmin  = document.getElementById('isAdmin').checked;
+
+      try {
+        // 1. Create auth user
+        const { data: authData, error: authError } = await supabase.auth.signUp({ email, password });
+        if (authError) throw authError;
+
+        const userId = authData.user.id;
+
+        // 2. Insert into public.users
+        const { error: profileError } = await supabase.from('users').upsert({
+          id: userId,
+          name,
+          age,
+          gender,
+          weight,
+          height,
+          is_admin: isAdmin,
+          status: 0
+        }, { onConflict: 'id' });
+
+        if (profileError) throw profileError;
+
+        msg.style.color = 'green';
+        msg.textContent = `✅ Account created! User ID: ${userId}. You can now log in.`;
+        btn.textContent = 'Done!';
+
+      } catch (err) {
+        msg.style.color = 'red';
+        msg.textContent = '❌ Error: ' + err.message;
+        btn.disabled = false;
+        btn.textContent = 'Sign Up';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
+    <title>Meal History - Nutrition Tracker</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script type="module" src="/src/history.js"></script>
+  </head>
+
+  <body class="dashboard-body">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: #1f2937;">
+            <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+          </a>
+        </div>
+
+        <div class="navbar-links desktop-menu">
+          <a href="userProfile.html">Profile</a>
+          <a href="userDashboard.html">Dashboard</a>
+          <a href="history.html">History</a>
+          <a href="upload.html">Upload Meal</a>
+          <a href="index.html">Homepage</a>
+        </div>
+        <div class="navbar-actions desktop-menu" style="margin-left: auto; padding-left: 3rem;">
+          <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-header">
+        <h3>Menu</h3>
+        <button id="closeSidebarBtn" class="close-sidebar-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="mobile-sidebar-links">
+        <a href="userProfile.html">Profile</a>
+        <a href="userDashboard.html">Dashboard</a>
+        <a href="history.html">History</a>
+        <a href="upload.html">Upload Meal</a>
+        <a href="index.html">Homepage</a>
+      </div>
+      <div class="mobile-sidebar-footer">
+        <button id="logoutBtnMobile" class="btn-logout">Logout</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="page-header history-page-header">
+        <h2><i class="fas fa-history"></i> Meal History</h2>
+        <p class="history-subtitle">
+          Select a date to view a specific day, or keep "All dates" to see your
+          full history from previous to latest records.
+        </p>
+        <p id="historyUserDisplay" class="history-user"></p>
+      </div>
+
+      <section class="history-filter-card">
+        <div class="history-filter-row">
+          <label for="historyDateFilter" class="history-filter-label">
+            <i class="fas fa-calendar-alt"></i> Date
+          </label>
+          <input
+            type="date"
+            id="historyDateFilter"
+            class="history-filter-select"
+            placeholder="dd/mm/yyyy"
+          />
+          <button
+            type="button"
+            id="historyDateClear"
+            class="history-date-clear-btn"
+            title="Clear date filter"
+          >
+            <i class="fas fa-times"></i> Reset
+          </button>
+        </div>
+      </section>
+
+      <section id="historyCards" class="history-cards-wrap"></section>
+
+      <div id="historyEmptyState" class="history-empty hidden">
+        <i class="fas fa-utensils"></i>
+        <h3>No meals found</h3>
+        <p>No meal records match the selected date.</p>
+      </div>
+    </div>
+  </body>
+</html>

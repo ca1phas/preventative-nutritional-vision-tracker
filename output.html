@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Nutrition Tracker</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script type="module" src="/src/output.js"></script>
+  </head>
+  <body class="dashboard-body">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: #1f2937;">
+            <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+          </a>
+        </div>
+
+        <div class="navbar-links desktop-menu">
+          <a href="userProfile.html">Profile</a>
+          <a href="userDashboard.html">Dashboard</a>
+          <a href="history.html">History</a>
+          <a href="upload.html">Upload Meal</a>
+          <a href="index.html">Homepage</a>
+        </div>
+        <div class="navbar-actions desktop-menu" style="margin-left: auto; padding-left: 3rem;">
+          <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-header">
+        <h3>Menu</h3>
+        <button id="closeSidebarBtn" class="close-sidebar-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="mobile-sidebar-links">
+        <a href="userProfile.html">Profile</a>
+        <a href="userDashboard.html">Dashboard</a>
+        <a href="history.html">History</a>
+        <a href="upload.html">Upload Meal</a>
+        <a href="index.html">Homepage</a>
+      </div>
+      <div class="mobile-sidebar-footer">
+        <button id="logoutBtnMobile" class="btn-logout">Logout</button>
+      </div>
+    </div>
+
+    <div class="container-output">
+      <div class="page-header">
+        <h2>Output</h2>
+      </div>
+      <div class="page-header" style="display: block;">
+        <h2 style="white-space: nowrap;">AI Nutrition Analysis Result</h2>
+        <p style="color: #6b7280; margin-top: 0.5rem">
+          View the detailed nutrition analysis for the submitted meal
+        </p>
+      </div>
+
+      <div class="container">
+        <div
+          id="mealImageContainer"
+          class="meal-image"
+          style="text-align: center"
+        ></div>
+        <div id="basicInfo" class="meal-info"></div>
+        <div class="divider"></div>
+
+        <h2>Nutrition Table</h2>
+
+        <div class="table-container">
+          <table id="nutritionTable">
+            <thead>
+              <tr>
+                <th>Nutrient</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div
+          id="aiSummary"
+          class="summary"
+          style="
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f3f4f6;
+            border-radius: 8px;
+          "
+        ></div>
+
+        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a
+            href="upload.html"
+            class="btn btn-primary"
+            style="text-decoration: none; width: auto; min-width: 180px; display: inline-flex; justify-content: center; align-items: center; text-align: center;"
+            >Log Another Meal</a
+          >
+          <button
+            class="btn btn-secondary output-back-btn"
+            onclick="history.back()"
+            style="width: auto; min-width: 180px; margin-left: 0;"
+          >
+            Back <i class="fas fa-rotate-left" style="margin-left: 0.5rem"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

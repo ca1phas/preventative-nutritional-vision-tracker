@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
+    <title>Upload Meal - Nutrition Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/responsive.css" />
+    <script type="module" src="/src/upload.js"></script>
+  </head>
+  <body class="dashboard-body">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: #1f2937;">
+            <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+          </a>
+        </div>
+
+        <div class="navbar-links desktop-menu">
+          <a href="userProfile.html">Profile</a>
+          <a href="userDashboard.html">Dashboard</a>
+          <a href="history.html">History</a>
+          <a href="upload.html">Upload Meal</a>
+          <a href="index.html">Homepage</a>
+        </div>
+        <div class="navbar-actions desktop-menu" style="margin-left: auto; padding-left: 3rem;">
+          <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-header">
+        <h3>Menu</h3>
+        <button id="closeSidebarBtn" class="close-sidebar-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="mobile-sidebar-links">
+        <a href="userProfile.html">Profile</a>
+        <a href="userDashboard.html">Dashboard</a>
+        <a href="history.html">History</a>
+        <a href="upload.html">Upload Meal</a>
+        <a href="index.html">Homepage</a>
+      </div>
+      <div class="mobile-sidebar-footer">
+        <button id="logoutBtnMobile" class="btn-logout">Logout</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="page-header">
+        <h2>Upload Meal Photo</h2>
+      </div>
+
+      <div class="upload-card">
+        <div id="error" class="alert alert-error hidden"></div>
+
+        <form id="uploadForm">
+          <div class="form-group">
+            <label>Select Meal Image</label>
+            <div class="file-input-wrapper">
+              <input
+                type="file"
+                id="mealImage"
+                accept=".png,.jpg,.jpeg,.webp,.heic,.heif,image/png,image/jpeg,image/webp,image/heic,image/heif"
+                required
+              />
+            </div>
+            <p style="font-size: 0.9rem; color: #6b7280; margin-top: -1rem">
+              Accepted: PNG, JPEG, WEBP, HEIC, HEIF. Minimum resolution:
+              1920x1080 (1080p).
+            </p>
+          </div>
+
+          <div id="imagePreview" class="image-preview hidden">
+            <img id="previewImg" src="" alt="Preview" />
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-primary">
+            Analyze Meal
+          </button>
+        </form>
+
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Analyzing image...</p>
+        </div>
+      </div>
+    </div>
+    <div
+      id="profilePromptModal"
+      class="meal-modal-overlay hidden"
+      style="z-index: 2000"
+    >
+      <div class="meal-modal" style="padding: 2.5rem; text-align: center">
+        <h3 style="color: #ef4444; margin-bottom: 1rem; font-size: 1.5rem">
+          <i class="fas fa-exclamation-circle"></i> Profile Incomplete
+        </h3>
+        <p style="margin-bottom: 2rem; color: #4b5563">
+          Please complete your user profile before analyzing a meal.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center">
+          <a
+            href="userProfile.html"
+            class="btn btn-primary"
+            style="text-decoration: none"
+            >Go to Profile</a
+          >
+          <button
+            onclick="
+              document
+                .getElementById('profilePromptModal')
+                .classList.add('hidden')
+            "
+            class="btn btn-secondary"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
