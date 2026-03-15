@@ -51,7 +51,7 @@
 
     .container,
     .main-header .container {
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
         box-sizing: border-box;
     }
 
@@ -550,4 +550,3 @@ Unified Mobile Nav Bar & Sidebar Drawer
         gap: 0.75rem;
     }
 }
-

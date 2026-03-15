@@ -16,20 +16,48 @@
     <nav class="navbar">
       <div class="navbar-container">
         <div class="navbar-brand">
-          <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
-          <div class="navbar-links">
-            <a href="userProfile.html">Profile</a>
-            <a href="userDashboard.html">Dashboard</a>
-            <a href="history.html">History</a>
-            <a href="upload.html" class="active">Upload Meal</a>
-            <a href="index.html">Homepage</a>
-          </div>
+          <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; color: #1f2937;">
+            <h1><i class="fas fa-heartbeat"></i> Nutrition Tracker</h1>
+          </a>
         </div>
-        <div style="margin-left: auto; padding-left: 3rem">
+
+        <div class="navbar-links desktop-menu">
+          <a href="userProfile.html">Profile</a>
+          <a href="userDashboard.html">Dashboard</a>
+          <a href="history.html">History</a>
+          <a href="upload.html" class="active">Upload Meal</a>
+          <a href="index.html">Homepage</a>
+        </div>
+
+        <div class="navbar-actions desktop-menu" style="margin-left: auto;">
           <button id="logoutBtn" class="btn-logout">Logout</button>
         </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-header">
+        <h3>Menu</h3>
+        <button id="closeSidebarBtn" class="close-sidebar-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="mobile-sidebar-links">
+        <a href="userProfile.html">Profile</a>
+        <a href="userDashboard.html">Dashboard</a>
+        <a href="history.html">History</a>
+        <a href="upload.html" class="active">Upload Meal</a>
+        <a href="index.html">Homepage</a>
+      </div>
+      <div class="mobile-sidebar-footer">
+        <button id="logoutBtnMobile" class="btn-logout">Logout</button>
+      </div>
+    </div>
+
+    <div class="container">
 
     <div class="container">
       <div class="page-header">
