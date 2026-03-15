@@ -1,6 +1,6 @@
 import { supabase, logoutUser } from "./supabase.js";
 
-const publicPages = ["/login.html", "/index.html", "/"];
+const publicPages = ["/login.html", "/login", "/index.html", "/index", "/"];
 
 export async function initAuthGuard() {
   const currentPath = window.location.pathname;
@@ -19,7 +19,7 @@ export async function initAuthGuard() {
   // Logged In
   if (session) {
     // Try to access login
-    if (currentPath.endsWith("login.html")) {
+    if (currentPath.endsWith("login.html") || currentPath.endsWith("/login")) {
       const adminStatus = await isAdmin();
       const destination = adminStatus ? "dashboard.html" : "userDashboard.html";
       window.location.replace(destination);
@@ -29,7 +29,7 @@ export async function initAuthGuard() {
     // Try to access admin page when not admin
     if (currentPath.endsWith("dashboard.html") && !isAdmin()) {
       alert("Admin access required");
-      window.location.replace("index.html");
+      window.location.replace("/");
       return;
     }
 
@@ -102,32 +102,32 @@ export async function isAdmin() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('mobileMenuToggle');
-    const sidebar = document.getElementById('mobileSidebar');
-    const overlay = document.getElementById('mobileOverlay');
-    const closeBtn = document.getElementById('closeSidebarBtn');
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const sidebar = document.getElementById('mobileSidebar');
+  const overlay = document.getElementById('mobileOverlay');
+  const closeBtn = document.getElementById('closeSidebarBtn');
 
-    if (menuToggle && sidebar && overlay && closeBtn) {
-        const openMenu = () => {
-            sidebar.classList.add('active');
-            overlay.classList.add('active');
-        };
+  if (menuToggle && sidebar && overlay && closeBtn) {
+    const openMenu = () => {
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+    };
 
-        const closeMenu = () => {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-        };
+    const closeMenu = () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+    };
 
-        menuToggle.addEventListener('click', openMenu);
-        closeBtn.addEventListener('click', closeMenu);
-        overlay.addEventListener('click', closeMenu);
-    }
+    menuToggle.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+  }
 
-    const logoutBtnMobile = document.getElementById('logoutBtnMobile');
-    if (logoutBtnMobile) {
-        logoutBtnMobile.addEventListener('click', async (e) => {
-            e.preventDefault();
-            document.getElementById('logoutBtn')?.click(); 
-        });
-    }
+  const logoutBtnMobile = document.getElementById('logoutBtnMobile');
+  if (logoutBtnMobile) {
+    logoutBtnMobile.addEventListener('click', async (e) => {
+      e.preventDefault();
+      document.getElementById('logoutBtn')?.click();
+    });
+  }
 });
