@@ -27,7 +27,7 @@ export async function initAuthGuard() {
     }
 
     // Try to access admin page when not admin
-    if (currentPath.endsWith("dashboard.html") && !isAdmin()) {
+    if (currentPath.endsWith("dashboard.html") || currentPath.endsWith("/dashboard") && !isAdmin()) {
       alert("Admin access required");
       window.location.replace("/");
       return;
@@ -42,7 +42,7 @@ export async function initAuthGuard() {
       .maybeSingle();
 
 
-    if (!profile && !currentPath.endsWith("userProfile.html")) {
+    if (!profile && (!currentPath.endsWith("userProfile.html") || !currentPath.endsWith("/userProfile"))) {
       window.location.replace("userProfile.html");
       return;
     }
